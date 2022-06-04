@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontact
+spec:
+  selector:
+    matchLabels:
+      app: frontact
+  template:
+    metadata:
+      labels:
+        app: frontact
+    spec:
+      containers:
+      - name: frontact
+        image: deekshitg101/frontend-react
+        resources:
+          limits:
+            memory: "700Mi"
+            cpu: "500m"
+        # imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
